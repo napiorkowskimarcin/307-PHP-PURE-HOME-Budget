@@ -1,17 +1,25 @@
 <?php
 $connection = require_once './CLASSESS/Connection.php';
-$data = require_once './CLASSESS/Data.php';
+require_once './CLASSESS/Data.php';
 
 
 $data = $connection->getData();
 
-
+//create values for presenting data - summary of all costs
 $totalHealth = Data::totalHealthy($data);
 $totalUnhealth = Data::totalUnhealthy($data);
 $totalFarmacy = Data::totalFarmacy($data);
 $totalHousehold = Data::totalHousehold($data);
 $totalClothing = Data::totalClothing($data);
 $totalTotal = Data::totalTotal([$totalHealth, $totalUnhealth, $totalFarmacy, $totalHousehold, $totalClothing]);
+
+//create a %share of each value
+$shareHealth =  number_format($totalHealth *100 /$totalTotal, 2, '.', '');
+$shareUnhealth =  number_format($totalUnhealth *100 /$totalTotal, 2, '.', '');
+$shareFarmacy =  number_format($totalFarmacy *100 /$totalTotal, 2, '.', '');
+$shareHousehold =  number_format($totalHousehold *100 /$totalTotal, 2, '.', '');
+$shareClothing =  number_format($totalClothing *100 /$totalTotal, 2, '.', '');
+
 ?>
 
 
@@ -34,13 +42,57 @@ $totalTotal = Data::totalTotal([$totalHealth, $totalUnhealth, $totalFarmacy, $to
 </nav>
 <div class="container">
 <div class="d-flex justify-content-center">
-Total cost of: 
-Food : <?php echo $totalHealth ?> <br>
-Unhealthy food: <?php echo $totalUnhealth ?><br>
-Farmacy: <?php echo $totalFarmacy ?><br>
-Household: <?php echo $totalHousehold ?><br>
-Clothes: <?php echo $totalHealth ?><br>
-Total spend in shops:  <?php echo $totalTotal ?><br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Type of cost</th>
+      <th scope="col">Value</th>
+      <th scope="col">Share in total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Food</td>
+      <td><?php echo $totalHealth ?></td>
+      <td><?php echo  $shareHealth?>%</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Unhealthy food</td>
+      <td><?php echo $totalUnhealth ?></td>
+      <td><?php echo $shareUnhealth ?>%</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Farmacy</td>
+      <td><?php echo $totalFarmacy ?></td>
+      <td><?php echo $shareFarmacy?>%</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Household</td>
+      <td><?php echo $totalHousehold ?></td>
+      <td><?php echo $shareHousehold ?>%</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Clothes</td>
+      <td><?php echo $totalClothing ?></td>
+      <td><?php echo $shareClothing?>%</td>
+    </tr>
+    <tr>
+      <th scope="row">-</th>
+      <td>TOTAL:</td>
+      <td><?php echo $totalTotal ?></td>
+      <td>---</td>
+    </tr>
+    
+  </tbody>
+</table>
+
 </div>
 </div>
 </body>
