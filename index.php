@@ -1,6 +1,6 @@
 <?php
 $connection = require_once './CLASSESS/Connection.php';
-$connection = require_once './CLASSESS/Data.php';
+$data = require_once './CLASSESS/Data.php';
 
 
 $data = $connection->getData();
