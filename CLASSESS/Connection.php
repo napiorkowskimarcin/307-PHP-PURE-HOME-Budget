@@ -11,11 +11,11 @@ class Connection
     }
 
 
-    // public function getNotes(){
-    // $statement = $this->pdo->prepare("SELECT * FROM notes ORDER BY create_date DESC ");
-    // $statement->execute();
-    // return $statement->fetchAll(PDO::FETCH_ASSOC);
-    // }
+    public function getData(){
+    $statement = $this->pdo->prepare("SELECT * FROM budget ORDER BY create_date DESC ");
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function addReceipt($receipt){
     $statement = $this->pdo->prepare("INSERT INTO budget (healthyFood, unhealthyFood,farmacy,household,  clothing, create_date ) VALUES(:healthyFood, :unhealthyFood, :farmacy, :household,  :clothing, :date)");  
