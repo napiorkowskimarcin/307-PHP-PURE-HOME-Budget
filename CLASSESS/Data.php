@@ -37,5 +37,5 @@ class Data
 
     
 
-return new Connection();
+return new Data();
 ?>
