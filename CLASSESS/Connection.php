@@ -6,7 +6,7 @@ class Connection
     
     public function __construct()
     {
-    $this->pdo = new PDO('mysql:server=localhost;dbname=budget', 'root', '');
+    $this->pdo = new PDO('mysql:server=eu-cdbr-west-03.cleardb.net;dbname=budget', 'bdafaeae536a26', 'b59c304b');
     $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
