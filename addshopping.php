@@ -21,24 +21,25 @@
     <form action="create_receipt.php" method="post">
     <div class="form-group">
         <label for="healthyFood">Healthy Food :</label>
-        <input type="number" name="healthyFood" placeholder="" autocomplete="off" step="0.01">
+        <input type="number" class="form-control" name="healthyFood" placeholder="" autocomplete="off" step="0.01">
     </div>
     <div class="form-group">
         <label for="unhealthyFood">Unealthy Food :</label>
-        <input type="number" name="unhealthyFood" placeholder="" autocomplete="off" step="0.01">
+        <input type="number" class="form-control" name="unhealthyFood" placeholder="" autocomplete="off" step="0.01">
     </div>
     <div class="form-group">
         <label for="farmacy">Farmacy, personal care :</label>
-        <input type="number" name="farmacy" placeholder="" autocomplete="off" step="0.01">
+        <input type="number" class="form-control" name="farmacy" placeholder="" autocomplete="off" step="0.01">
     </div>
     <div class="form-group">
         <label for="farmacy">Household : </label>
-        <input type="number" name="household" placeholder="Household products" autocomplete="off" step="0.01">
+        <input type="number" class="form-control" name="household" placeholder="" autocomplete="off" step="0.01">
     </div>
     <div class="form-group">
         <label for="clothing">Clothes :</label>
-        <input type="number" name="clothing" placeholder="Clothes" autocomplete="off" step="0.01">
-        <button>Add !</button>
+        <input type="number" class="form-control" name="clothing" placeholder="" autocomplete="off" step="0.01">
+    </div>    
+        <button class="btn btn-primary">Add receipt!</button>
     </form>
 </div>
 </div>
